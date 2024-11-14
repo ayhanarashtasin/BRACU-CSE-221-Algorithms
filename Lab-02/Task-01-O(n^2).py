@@ -10,7 +10,8 @@ with open("output1a.txt","w") as out_f:
       for i in range(len(arr)):
         for j in range(i+1,len(arr)):
           if arr[i]+arr[j]==target:
-            out_f.write(f"{i+1} {j+1}")
+            return (f"{i+1} {j+1}")
+      return f"IMPOSSIBLE"
     
 #Driver_Code_Which_I_MADE
 #_____________________________________________________________________
@@ -18,5 +19,5 @@ with open("output1a.txt","w") as out_f:
     for i in range(len(read)):
       temp = list(map(int,read[i].split()))
       array.append(temp)
-    SortedArrayTwoSum(array[1],array[0][1])
+    out_f.write(f"{SortedArrayTwoSum(array[1],array[0][1])}")
 #_____________________________________________________________________
