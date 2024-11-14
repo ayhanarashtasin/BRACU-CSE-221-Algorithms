@@ -24,6 +24,5 @@ with open("output1a.txt","w") as out_f:
     for i in range(len(read)):
       temp = list(map(int,read[i].split()))
       array.append(temp)
-    print(array)
     out_f.write(f"{MergeTwoSortedArray(array[1],array[3])}")
 #_____________________________________________________________________
