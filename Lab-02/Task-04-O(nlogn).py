@@ -1,54 +1,27 @@
-input_file = open("input4.txt", "r")
+#Taking input____________________________________________________________________________
+with open("output1a.txt","w") as out_f:
+  with open("input1a.txt","r") as inp_f:
+    read = inp_f.read().split("\n")
+#Taking Input Ends Here__________________________________________________________________
+    from queue import PriorityQueue
+#Main_Code_Start_from_Here________________________________________________________________
+    def MeetingRooms(arr,length):
+      min_heap = PriorityQueue()
+      arr.sort(key = lambda x: x[1])
+      count = 0
+      for i in arr:
+        if not min_heap.empty() and i[0]>=min_heap.queue[0]:
+            min_heap.get()
+        if min_heap.qsize()<length:
+                min_heap.put(i[1])
+                count+=1
+      return count
+#Main_code_Ends_Here______________________________________________________________________
 
-output_file = open("output4'.txt","w")
-tasks, people = map(int, input_file.readline().split())
-# Store data in a list
-all = []
-for i in range(tasks):
-  all.append(list(map(int, input_file.readline().split(" "))))
-def merge_sort(arr):
-  if len(arr) <= 1:
-    return arr
-  middle = len(arr) // 2
-  left_half = arr[:middle]
-  right_half = arr[middle:]
-  left_half = merge_sort(left_half)
-  right_half = merge_sort(right_half)
-  sorted_arr = []
-  left_index, right_index = 0, 0
-  while left_index < len(left_half) and right_index < len(right_half):
-    if left_half[left_index][1] < right_half[right_index][1]:
-      sorted_arr.append(left_half[left_index])
-      left_index += 1
-    else:
-      sorted_arr.append(right_half[right_index])
-      right_index += 1
-  sorted_arr.extend(left_half[left_index:])
-  sorted_arr.extend(right_half[right_index:])
-  return sorted_arr
-all = merge_sort(all)
-
-# Create list for M people
-m = [all[0]]
-n = []
-all.pop(0)                           
-count = 1
-idx1 = 0
-idx2 = 0
-
-# Calculate Maximum Tasks
-for j in range(len(all)):
-  if m[idx1][1] <= all[j][0] or m[idx1][0] == all[j][0] and m[idx1][1] < all[j][1] or m[idx1-1][1] == all[j][0]:
-    m.append(all[j])
-    idx1 += 1
-    count += 1
-  elif n != []:
-    if n[idx2][1] <= all[j][0] or n[idx2][0] == all[j][0] and n[idx2][1] < all[j][1] or n[idx2-1][1] == all[j][0]:
-      n.append(all[j])
-      idx2 += 1
-      count += 1
-  else:
-      n.append(all[j])
-      count += 1
-output_file.write(f"{count}")
-output_file.close()
+#Drive_Code_Which_I_Made__________________________________________________________________
+    arr = []
+    for i in range(len(read)):
+      temp = list(map(int,read[i].split()))
+      arr.append(temp)
+    out_f.write(f"{MeetingRooms(arr[1:],arr[0][1])}")
+#Driver_Code_Ends_Here
