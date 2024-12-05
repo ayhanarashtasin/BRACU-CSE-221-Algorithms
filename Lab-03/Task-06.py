@@ -37,7 +37,6 @@ with open("output1a.txt","w") as out_f:
       arr.append(temp)
     low = 0
     high = arr[0][0]-1
-    print(arr)
 #This Line for Output____________________________________________________________________
     for i in range(3,len(arr)):
         out_f.write(f"{QuickSort(arr[1],low,high,arr[i][0])}\n")
