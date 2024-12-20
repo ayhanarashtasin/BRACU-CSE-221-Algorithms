@@ -5,7 +5,7 @@ with open("output1a.txt","w") as out_f:
 #Taking Input Ends Here__________________________________________________________________
 
 #Main Code Starts Frome Here_____________________________________________________________
-    def matrix_representation(V , edges):
+    def adj_List_representation(V , edges):
       adj_List = [[] for i in range(V)]
       for i in range(len(edges)):
         u = edges[i][0]
@@ -20,7 +20,7 @@ with open("output1a.txt","w") as out_f:
     for i in read:
       temp = list(map(int,i.split(" ")))
       arr.append(temp)
-    adj_List = matrix_representation(arr[0][0]+1,arr[1:])
+    adj_List = adj_List_representation(arr[0][0]+1,arr[1:])
 #Driver Code Ends Here____________________________________________________________________
 
 #This Part for printng the output_________________________________________________________
