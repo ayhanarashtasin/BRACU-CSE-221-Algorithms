@@ -31,7 +31,7 @@ with open("output1a.txt","w") as out_f:
 #Main Code Ends Here_____________________________________________________________________
     
 #Drive Code Which I Made_________________________________________________________________
-    def matrix_representation(V , edges,end):
+    def representation(V , edges,end):
       adj_list = [[]*V for i in range(V)]
       for i in range(len(edges)):
         u = edges[i][0]
@@ -43,5 +43,5 @@ with open("output1a.txt","w") as out_f:
     for i in read:
       temp = list(map(int,i.split()))
       arr.append(temp)
-    matrix_representation(arr[0][0]+1,arr[1:len(arr)-1],arr[0][2])
+    representation(arr[0][0]+1,arr[1:len(arr)-1],arr[0][2])
 #Driver Code Ends Here____________________________________________________________________
