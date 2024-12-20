@@ -32,6 +32,7 @@ with open("output1a.txt","w") as out_f:
         u = edges[i][0]
         v = edges[i][1]
         adj_list[u].append(v)
+        adj_list[v].append(u)
       BFS(adj_list)
     arr = []
     for i in read:
