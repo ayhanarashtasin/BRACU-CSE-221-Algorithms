@@ -22,8 +22,9 @@ with open("output1a.txt","w") as out_f:
             if current_distance + edgeWeight < distance[adjNode]:
                 distance[adjNode] = current_distance + edgeWeight
                 min_heap.put((distance[adjNode], adjNode))
-      if distance[len(distance)-1]== float("inf"):
-        distance[len(distance)-1] = -1
+      for i in range(1,len(distance)):
+        if distance[i]==float("inf"):
+          distance[i] = -1
       return distance
 #Main Code Ends Here_____________________________________________________________________
     
