@@ -1,3 +1,9 @@
+#Taking input____________________________________________________________________________
+import queue
+import heapq as hq
+with open("output1a.txt","w") as out_f:
+  with open("input1a.txt","r") as inp_f:
+    read = inp_f.read().split("\n")
 #Taking Input Ends Here__________________________________________________________________
     from queue import PriorityQueue
 #Main Code Starts Frome Here_____________________________________________________________
