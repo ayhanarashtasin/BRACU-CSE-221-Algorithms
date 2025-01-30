@@ -5,7 +5,7 @@ with open("output1a.txt","w") as out_f:
     read = inp_f.read().split("\n")
 #Taking Input Ends Here__________________________________________________________________
 
-
+#Main Code Starts Frome Here_____________________________________________________________
     from collections import deque, defaultdict
     def bfs(start, graph, visited):
         queue = deque([start])
@@ -21,5 +21,6 @@ with open("output1a.txt","w") as out_f:
                     visited[neighbor] = 1 - current_faction  # Assign opposite faction
                     count[visited[neighbor]] += 1
                     queue.append(neighbor)
-    
         return max(count)
+
+#Main Code Ends Here_____________________________________________________________________
