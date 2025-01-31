@@ -14,11 +14,11 @@ def lexicographically_smallest_toposort(N, M, prerequisites):
     in_degree = {i: 0 for i in range(1, N + 1)}
     for A, B in prerequisites:
         graph[A].append(B)
-        in_degree[B] += 1  # Increase in-degree of B
+        in_degree[B] += 1
     min_heap = []
     for course in range(1, N + 1):
         if in_degree[course] == 0:
-            heapq.heappush(min_heap, course)  # Push all courses with zero in-degree
+            heapq.heappush(min_heap, course)
     topo_order = []
     while min_heap:
         course = heapq.heappop(min_heap
@@ -26,7 +26,7 @@ def lexicographically_smallest_toposort(N, M, prerequisites):
         for neighbor in graph[course]:
             in_degree[neighbor] -= 1
             if in_degree[neighbor] == 0:
-                heapq.heappush(min_heap, neighbor)  # Push new zero in-degree nodes
+                heapq.heappush(min_heap, neighbor)
     if len(topo_order) != N:
         return "IMPOSSIBLE"
     return " ".join(map(str, topo_order))
